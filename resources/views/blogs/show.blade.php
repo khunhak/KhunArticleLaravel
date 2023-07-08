@@ -20,7 +20,7 @@
       </div>
     </div>
     <!-- comment section -->
-    <x-comments/>
+    <x-comments :comments='$blog->comments' />
     <!-- subscribe new blogs -->
     <x-subscribe/>
     <x-blogUML :randomBlogs='$randomBlogs' />

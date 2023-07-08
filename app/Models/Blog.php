@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Cateogry;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Comment;
 
 
 class Blog extends Model
@@ -46,6 +47,9 @@ class Blog extends Model
     }
     public function author(){
         return $this->belongsTo(User::class,'user_id');
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
 
 }
