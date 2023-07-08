@@ -1,6 +1,6 @@
 @props(['randomBlogs'])
 <x-layout>
-    <!-- singloe blog section -->
+    <!-- single blog section -->
     <div class="container">
       <div class="row">
         <div class="col-md-6 mx-auto text-center">
@@ -19,6 +19,8 @@
         </div>
       </div>
     </div>
+    <!-- comment section -->
+    <x-comments/>
     <!-- subscribe new blogs -->
     <x-subscribe/>
     <x-blogUML :randomBlogs='$randomBlogs' />
