@@ -24,27 +24,18 @@
     <section class="container">
       <div class="col-md-8 mx-auto">
       <x-card-wrapper>
-        <form method="post" action="/blog/{{$blog->slug}}/comments">
-          @csrf
-            <div class="mb-3">
-              <textarea name="body" id="" rows="5" cols="10" class="form-control border border-0" placeholder="say something"></textarea>
-              @error('body')
-                <p class="text-danger">{{$message}}</p>
-              @enderror
-            </div>
-            <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+      <x-comment-form :blog="$blog" />
       </x-card-wrapper>
       @else
         <p class="text-center">Pls <a href="/login">login</a> to participate in this discussion</p>
       @endauth
       </div> 
     </section>
-
     <!-- comment section -->
-    <x-comments :comments='$blog->comments' />
+
+    @if($blog->comments->count())
+      <x-comments :comments='$blog->comments' />
+    @endif
     <!-- subscribe new blogs -->
     <x-subscribe/>
     <x-blogUML :randomBlogs='$randomBlogs' />

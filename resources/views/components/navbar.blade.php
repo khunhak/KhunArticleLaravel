@@ -16,7 +16,7 @@
           <p class="nav-link" >{{auth()->user()->name}}</p>
           @endguest
           @auth
-          <form action="./logout" method="POST">
+          <form action="/logout" method="POST">
           @csrf
             <button type="submit" class="nav-link btn btn-link">Logout</button>
           </form>

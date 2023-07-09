@@ -15,26 +15,26 @@
                     {{$message}}
                     </p>
                     @enderror -->
+                    <x-error name="name" />
                 </div>
                 <div class="mb-3">
                     <labelfor="exampleInputEmail1" class="form-label">Username</label>
                     <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required value="{{old('username')}}">
-                    
+                    <x-error name="username" />
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required value="{{old('email')}}">
-                    
+                    <x-error name="email" />
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" required value="{{old('password')}}">
+                    <x-error name="password" />
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Submit</button>
-                @foreach($errors->all() as $error)
-                <li class="text-danger" >{{$error}}</li>
-                @endforeach
+
             </form>
                 </div>
 
