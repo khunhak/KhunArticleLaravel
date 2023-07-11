@@ -56,4 +56,7 @@ class User extends Authenticatable
     public function setPasswordAttribute($value){ // Mutator
         $this->attributes['password'] = bcrypt($value);
     }
+    public function subscribedBlogs(){
+        return $this->belongsToMany(Blog::class,'blog_user');
+    }
 }

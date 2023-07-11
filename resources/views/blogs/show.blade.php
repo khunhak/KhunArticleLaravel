@@ -13,6 +13,9 @@
           <!-- <h4>author - <a href="/?author={{$blog->author->username}}">{{$blog->author->name}}</h4></a> -->
           <a href="/?category={{$blog->category->slug}}"><div class="badge bg-primary">{{$blog->category->name}}</div></a>
           <div class='text-secondary'>{{$blog->created_at->diffForHumans()}}</div>
+          <div class='text-secondary''>
+            <button class="btn btn-warning">Subscribe</button>
+          </div>
           <p class="lh-md" style="margin-top:15px">
             {{$blog->body}}
           </p>
@@ -26,9 +29,9 @@
       <x-card-wrapper>
       <x-comment-form :blog="$blog" />
       </x-card-wrapper>
-      @else
+    @else
         <p class="text-center">Pls <a href="/login">login</a> to participate in this discussion</p>
-      @endauth
+    @endauth
       </div> 
     </section>
     <!-- comment section -->
@@ -36,8 +39,6 @@
     @if($blog->comments->count())
       <x-comments :comments='$blog->comments' />
     @endif
-    <!-- subscribe new blogs -->
-    <x-subscribe/>
     <x-blogUML :randomBlogs='$randomBlogs' />
     <!-- footer -->
 </x-layout>
