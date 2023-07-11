@@ -1,4 +1,4 @@
-@props(['randomBlogs'])
+@props(['randomBlogs','comments'])
 <x-layout>
     <!-- single blog section -->
     <div class="container">
@@ -35,10 +35,11 @@
       </div> 
     </section>
     <!-- comment section -->
-
+    
     @if($blog->comments->count())
-      <x-comments :comments='$blog->comments' />
+      <x-comments :comments='$comments' />
     @endif
+    {{$comments->links()}}
     <x-blogUML :randomBlogs='$randomBlogs' />
     <!-- footer -->
 </x-layout>

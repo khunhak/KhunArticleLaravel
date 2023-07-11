@@ -20,6 +20,6 @@ class CommentController extends Controller
         "blog_id"=>$blog->id
      ]);
 
-     return redirect()->back();
+     return redirect('/blogs/'.$blog->slug);
    }
 }
