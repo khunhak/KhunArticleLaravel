@@ -13,8 +13,9 @@
           <!-- <h4>author - <a href="/?author={{$blog->author->username}}">{{$blog->author->name}}</h4></a> -->
           <a href="/?category={{$blog->category->slug}}"><div class="badge bg-primary">{{$blog->category->name}}</div></a>
           <div class='text-secondary'>{{$blog->created_at->diffForHumans()}}</div>
-          <div class='text-secondary''>
-          <form action="" method="POST">
+          <div class='text-secondary'>
+          <form action="/blogs/{{$blog->slug}}/subscription" method="POST">
+            @csrf
             @auth
             @if(auth()->user()->isSubscribed($blog))
             <button class="btn btn-danger">Unsubscribe</button>
