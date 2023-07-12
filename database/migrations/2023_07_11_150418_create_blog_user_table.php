@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blog_user', function (Blueprint $table) {
-            $table->primary('blog_id','user_id');
+            $table->primary(['blog_id','user_id']);
             $table->foreignId('blog_id');
             $table->foreignId('user_id');
             $table->timestamps();

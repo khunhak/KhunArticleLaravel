@@ -14,7 +14,15 @@
           <a href="/?category={{$blog->category->slug}}"><div class="badge bg-primary">{{$blog->category->name}}</div></a>
           <div class='text-secondary'>{{$blog->created_at->diffForHumans()}}</div>
           <div class='text-secondary''>
+          <form action="" method="POST">
+            @auth
+            @if(auth()->user()->isSubscribed($blog))
+            <button class="btn btn-danger">Unsubscribe</button>
+            @else
             <button class="btn btn-warning">Subscribe</button>
+            @endif
+            @endauth
+          </form>           
           </div>
           <p class="lh-md" style="margin-top:15px">
             {{$blog->body}}
