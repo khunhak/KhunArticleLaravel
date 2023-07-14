@@ -52,7 +52,7 @@ class Blog extends Model
         return $this->hasMany(Comment::class);
     }
     public function subscribers(){
-        return $this->belongsToMany(User::class,'blog_user');
+        return $this->belongsToMany(User::class,'blog_user');// many to many relation
     }
     public function unSubscribe(){
         $this->subscribers()->detach(auth()->id());
