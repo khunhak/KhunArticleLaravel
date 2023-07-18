@@ -11,15 +11,18 @@ use App\Models\User;
 
 Route::get('/', [BlogController::class,'index']);
 Route::get('/blog/{blog:slug}',[BlogController::class,'show'])->where('wildcard','[A-z0-9_]+');
+Route::post('/blogs/{blog:slug}/subscription',[BlogController::class,'subscriptionHandler']);
+Route::get('/admin/blogs/create',[BlogController::class,'create'])->middleware('admin');
+
 Route::get('/register', [AuthController::class,'create'])->middleware('guest');
 Route::post('/register', [AuthController::class,'store'])->middleware('guest');
 Route::post('/logout',[AuthController::class,'logout'])->middleware('auth');
-
-Route::post('/blog/{blog:slug}/comments',[CommentController::class,'store']);
 Route::get('/login',[AuthController::class,'login'])->middleware('guest');
 Route::post('/post_login',[AuthController::class,'post_login'])->middleware('guest');
 
-Route::post('/blogs/{blog:slug}/subscription',[BlogController::class,'subscriptionHandler']);
+Route::post('/blog/{blog:slug}/comments',[CommentController::class,'store']);
+
+
 
 
 
