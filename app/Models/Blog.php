@@ -12,7 +12,7 @@ class Blog extends Model
 {
     use HasFactory;
 
-    public $fillable = ['title','intro','body'];
+    //public $fillable = ['slug','title','intro','body'];
     public $guarded = ['id'];
     public $with = ['category','author'];
 

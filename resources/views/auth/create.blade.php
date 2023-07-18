@@ -18,8 +18,8 @@
                     <x-error name="name" />
                 </div>
                 <div class="mb-3">
-                    <labelfor="exampleInputEmail1" class="form-label">Username</label>
-                    <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required value="{{old('username')}}">
+                    <labelfor="username" class="form-label">Username</label>
+                    <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp" required value="{{old('username')}}">
                     <x-error name="username" />
                 </div>
                 <div class="mb-3">
@@ -28,8 +28,8 @@
                     <x-error name="email" />
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" required value="{{old('password')}}">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" id="password" required value="{{old('password')}}">
                     <x-error name="password" />
                 </div>
                 

@@ -13,6 +13,7 @@ Route::get('/', [BlogController::class,'index']);
 Route::get('/blog/{blog:slug}',[BlogController::class,'show'])->where('wildcard','[A-z0-9_]+');
 Route::post('/blogs/{blog:slug}/subscription',[BlogController::class,'subscriptionHandler']);
 Route::get('/admin/blogs/create',[BlogController::class,'create'])->middleware('admin');
+Route::post('/admin/blogs/store',[BlogController::class,'store'])->middleware('admin');
 
 Route::get('/register', [AuthController::class,'create'])->middleware('guest');
 Route::post('/register', [AuthController::class,'store'])->middleware('guest');

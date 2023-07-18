@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Validation\Rule;
 
 
 use Illuminate\Http\Request;
@@ -64,7 +65,24 @@ class BlogController extends Controller
     
     public function create()
     {
-        return view('blogs.create');
+        return view('blogs.create',[
+            'categories'=>Category::all()
+        ]);
+    }
+    public function store()
+    {
+       
+        $formDatas = request()->validate([
+            "title"=>['required','min:1'],
+            'intro'=>['required','min:1'],
+            'slug'=>['required','min:1',Rule::unique('blogs','slug')],
+            'body'=>['required','min:1'],
+            'category_id'=>['required']
+        ]);
+        $formDatas['user_id'] = auth()->id();
+        Blog::create($formDatas);
+       
+        return redirect ('/');
     }
 
 }
