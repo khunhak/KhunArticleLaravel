@@ -73,10 +73,10 @@ class BlogController extends Controller
     {
        
         $formDatas = request()->validate([
-            "title"=>['required','min:1'],
-            'intro'=>['required','min:1'],
-            'slug'=>['required','min:1',Rule::unique('blogs','slug')],
-            'body'=>['required','min:1'],
+            "title"=>['required'],
+            'intro'=>['required'],
+            'slug'=>['required',Rule::unique('blogs','slug')],
+            'body'=>['required'],
             'category_id'=>['required',Rule::exists('categories','id')]
         ]);
         $formDatas['user_id'] = auth()->id();
