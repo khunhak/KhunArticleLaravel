@@ -77,9 +77,10 @@ class BlogController extends Controller
             'intro'=>['required','min:1'],
             'slug'=>['required','min:1',Rule::unique('blogs','slug')],
             'body'=>['required','min:1'],
-            'category_id'=>['required']
+            'category_id'=>['required',Rule::exists('categories','id')]
         ]);
         $formDatas['user_id'] = auth()->id();
+        $formDatas['thumbnails'] = request()->file('thumbnails')->store('blog_thumbnails');
         Blog::create($formDatas);
        
         return redirect ('/');

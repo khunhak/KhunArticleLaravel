@@ -17,7 +17,7 @@ class AuthController extends Controller
             'name'=>['required','min:3','max:228'],
             'username'=>['required',Rule::unique('users','username')],
             'email'=>['required','email',Rule::unique('users','email')],
-            'password'=>['required','min:8','max:102']
+            'password'=>['required','min:3','max:102']
         ]);
         $user = User::create($formDatas);
         auth()->login($user);
