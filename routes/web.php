@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\CommentController;
 use App\Models\Blog;
 use App\Models\Category;
@@ -12,8 +13,7 @@ use App\Models\User;
 Route::get('/', [BlogController::class,'index']);
 Route::get('/blog/{blog:slug}',[BlogController::class,'show'])->where('wildcard','[A-z0-9_]+');
 Route::post('/blogs/{blog:slug}/subscription',[BlogController::class,'subscriptionHandler']);
-Route::get('/admin/blogs/create',[BlogController::class,'create'])->middleware('admin');
-Route::post('/admin/blogs/store',[BlogController::class,'store'])->middleware('admin');
+
 
 Route::get('/register', [AuthController::class,'create'])->middleware('guest');
 Route::post('/register', [AuthController::class,'store'])->middleware('guest');
@@ -22,6 +22,12 @@ Route::get('/login',[AuthController::class,'login'])->middleware('guest');
 Route::post('/post_login',[AuthController::class,'post_login'])->middleware('guest');
 
 Route::post('/blog/{blog:slug}/comments',[CommentController::class,'store']);
+
+
+// Admin routes
+Route::get('/admin/blogs/create',[AdminBlogController::class,'create'])->middleware('admin');
+Route::post('/admin/blogs/store',[AdminBlogController::class,'store'])->middleware('admin');
+Route::get('/admin/blogs/index',[AdminBlogController::class,'index'])->middleware('admin');
 
 
 

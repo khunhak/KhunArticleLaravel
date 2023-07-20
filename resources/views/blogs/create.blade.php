@@ -1,12 +1,10 @@
 @props(['categories'])
 
-<x-layout>
+<x-admin-layout>
     <h3 class='my-3 text-center'>Create Blog Here</h3>
-    <div class="col-md-8 mx-auto">
         <x-card-wrapper>
             <form action="/admin/blogs/store" method="POST" enctype="multipart/form-data">
-                @csrf
-               
+                @csrf 
                 <x-form.input name="title" />
                 <x-form.input name="slug" />
                 <x-form.input name="intro" />
@@ -26,5 +24,4 @@
                 </div> 
             </form>
         </x-card-wrapper>
-    </div>
-</x-layout>
+</x-admin-layout>
