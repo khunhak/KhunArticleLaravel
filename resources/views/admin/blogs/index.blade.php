@@ -13,8 +13,8 @@
     @foreach($blogs as $blog)
     <tr>
       <td>{{$blog->title}}</td>
-      <td>{{$blog->intro}}</td>
-      <td><button class="btn btn-warning">Edit</button></td>
+      <td>{{$blog->intro}}</td>     
+      <td><a href="/admin/blogs/{{$blog->slug}}/edit" class="btn btn-warning">Edit</a></td>
       <form action="/admin/blogs/{{$blog->slug}}/delete" method="POST">
         @csrf
         @method('DELETE')
