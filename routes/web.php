@@ -25,12 +25,15 @@ Route::post('/blog/{blog:slug}/comments',[CommentController::class,'store']);
 
 
 // Admin routes
-Route::get('/admin/blogs/create',[AdminBlogController::class,'create'])->middleware('admin');
-Route::post('/admin/blogs/store',[AdminBlogController::class,'store'])->middleware('admin');
-Route::get('/admin/blogs/index',[AdminBlogController::class,'index'])->middleware('admin');
-Route::delete('/admin/blogs/{blog:slug}/delete',[AdminBlogController::class,'destroy'])->middleware('admin');
-Route::get('/admin/blogs/{blog:slug}/edit',[AdminBlogController::class,'edit'])->middleware('admin');
-Route::patch('/admin/blogs/{blog:slug}/update',[AdminBlogController::class,'update'])->middleware('admin');
+Route::middleware('can:admin')->group(function(){
+    Route::get('/admin/blogs/create',[AdminBlogController::class,'create']);
+    Route::post('/admin/blogs/store',[AdminBlogController::class,'store']);
+    Route::get('/admin/blogs/index',[AdminBlogController::class,'index']);
+    Route::delete('/admin/blogs/{blog:slug}/delete',[AdminBlogController::class,'destroy']);
+    Route::get('/admin/blogs/{blog:slug}/edit',[AdminBlogController::class,'edit']);
+    Route::patch('/admin/blogs/{blog:slug}/update',[AdminBlogController::class,'update']);
+});
+
            
        
 

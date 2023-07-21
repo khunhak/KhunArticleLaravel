@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Validation\Rule;
 
 
@@ -13,7 +14,10 @@ class BlogController extends Controller
 {
     //
     public function index() {
-    
+       // @dd($this->authorize('admin'));
+        //(auth()->user()->can('admin'));
+        //Gate::allow('admin)
+        //Gate::deni('admin')
  
         // $files = File::files(resource_path('./blogs'));
         // dd(files);

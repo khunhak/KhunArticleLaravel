@@ -43,7 +43,7 @@ class AuthController extends Controller
 
         if(auth()->attempt($formDatas)){
             if(auth()->user()->is_admin){
-                return redirect('/admin/blogs/index');
+                return redirect('/');
             }else {
                 return redirect('/')->with('success',"Welcome Back");
             }
