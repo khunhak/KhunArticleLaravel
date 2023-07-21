@@ -35,14 +35,19 @@ class AuthController extends Controller
     public function post_login() {
         $formDatas = request()->validate([
             "email"=>['required','email','max:255',Rule::exists('users','email')],
-            "password"=>['required','min:8','max:255']
+            "password"=>['required','min:1','max:255']
         ],[
             'email.required'=>"We need your email address.",
             'password.min'=>'Password more than 8'
         ]);
 
         if(auth()->attempt($formDatas)){
-            return redirect('/')->with('success',"Welcome Back");
+            if(auth()->user()->is_admin){
+                return redirect('/admin/blogs/index');
+            }else {
+                return redirect('/')->with('success',"Welcome Back");
+            }
+           
         }
         else{
             return redirect()->back()->withErrors([
