@@ -12,7 +12,7 @@
   <tbody>
     @foreach($blogs as $blog)
     <tr>
-      <td>{{$blog->title}}</td>
+      <td><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></td>
       <td>{{$blog->intro}}</td>     
       <td><a href="/admin/blogs/{{$blog->slug}}/edit" class="btn btn-warning">Edit</a></td>
       <form action="/admin/blogs/{{$blog->slug}}/delete" method="POST">

@@ -1,9 +1,9 @@
 @props(['blog'])
-<div class="card">
+  <div class="card">
             <img
               src="/storage/{{$blog->thumbnails}}"
               class="card-img-top"
-              alt="..."
+              alt="..." height="300px"
             />
             <div class="card-body">
               <h3 class="card-title">{{$blog->title}}</h3>
@@ -15,8 +15,9 @@
                 <a href="/?category={{$blog->category->slug}}{{request('search')?'&search='.request('search'):''}}{{request('author')?'&author='.request('author'):''}}"><span class="badge bg-primary">{{$blog->category->name}}</span></a>
               </div>
               <p class="card-text">
-                {!!$blog->body!!}
+                {!!$blog->intro!!}
               </p>
               <a href="/blog/{{$blog->slug}}" class="btn btn-primary">Read More</a>
             </div>
-          </div>
+</div>
+
