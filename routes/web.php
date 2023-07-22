@@ -65,3 +65,4 @@ Route::middleware('can:admin')->group(function(){
 //     ]);
     
 // })->where('wildcard','[A-z0-9_]+');
+

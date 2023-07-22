@@ -26,7 +26,7 @@
           </form>           
           </div>
           <p class="lh-md" style="margin-top:15px">
-            {{$blog->body}}
+            {!!$blog->body!!}
           </p>
         </div>
       </div>
