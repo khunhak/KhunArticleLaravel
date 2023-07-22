@@ -20,6 +20,6 @@
                 >Subscribe us</a>
             </li>
         </ul>
-        <p class="text-center">&copy; 2021 Blogs By creativecoder, Inc</p>
+        <p class="text-center">&copy;Blogs By Khunsharing.store</p>
     </footer>
 </div>
